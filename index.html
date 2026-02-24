@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>viraWeb | Dijitaldeki Gücünüz</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,7 +18,6 @@
             font-family: 'Poppins', sans-serif;
             background-color: #0b0f19; /* Derin karanlık arka plan */
             color: #ffffff;
-            overflow-x: hidden;
         }
 
         /* Daktilo Efekti İmleci */
@@ -27,6 +26,7 @@
             width: 3px;
             background-color: #3b82f6;
             animation: blink 0.7s infinite;
+            margin-left: 2px;
         }
         @keyframes blink {
             0%, 100% { opacity: 1; }
@@ -50,7 +50,7 @@
         }
         @keyframes scroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); } /* İçerik kendini tekrar ettiği için %50 yeterli */
+            100% { transform: translateX(-50%); } 
         }
 
         /* Özel Scrollbar */
@@ -59,307 +59,309 @@
         ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 4px; }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased overflow-x-hidden">
 
-    <nav class="fixed w-full z-50 bg-[#0b0f19]/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center cursor-pointer">
-                    <span class="text-3xl font-extrabold tracking-tighter text-white">
-                        vira<span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Web</span>
+    <div class="w-full overflow-hidden relative">
+
+        <nav class="fixed w-full z-50 bg-[#0b0f19]/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20">
+                    <div class="flex-shrink-0 flex items-center cursor-pointer">
+                        <span class="text-3xl font-extrabold tracking-tighter text-white">
+                            vira<span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Web</span>
+                        </span>
+                    </div>
+                    <div class="hidden md:flex space-x-8 items-center">
+                        <a href="#hizmetler" class="text-gray-300 hover:text-white transition">Hizmetler</a>
+                        <a href="#teknolojiler" class="text-gray-300 hover:text-white transition">Teknolojiler</a>
+                        <a href="#fiyatlar" class="text-gray-300 hover:text-white transition">Fiyatlandırma</a>
+                        <a href="#iletisim" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-semibold transition shadow-lg shadow-blue-500/30">Projeye Başla</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <section class="pt-32 pb-20 md:pt-48 md:pb-32 px-4 relative flex items-center justify-center min-h-[90vh]">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-blue-600/20 rounded-full blur-[100px] md:blur-[120px] -z-10"></div>
+            
+            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
+                <div class="inline-block border border-gray-700 bg-gray-800/50 rounded-full px-4 py-1.5 mb-6">
+                    <span class="flex items-center text-sm font-medium text-gray-300">
+                        <span class="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                        Yeni Nesil Web Ajansı
                     </span>
                 </div>
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#hizmetler" class="text-gray-300 hover:text-white transition">Hizmetler</a>
-                    <a href="#teknolojiler" class="text-gray-300 hover:text-white transition">Teknolojiler</a>
-                    <a href="#fiyatlar" class="text-gray-300 hover:text-white transition">Fiyatlandırma</a>
-                    <a href="#iletisim" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-semibold transition shadow-lg shadow-blue-500/30">Projeye Başla</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <section class="pt-32 pb-20 md:pt-48 md:pb-32 px-4 relative flex items-center justify-center min-h-screen">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[120px] -z-10"></div>
-        
-        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
-            <div class="inline-block border border-gray-700 bg-gray-800/50 rounded-full px-4 py-1.5 mb-6">
-                <span class="flex items-center text-sm font-medium text-gray-300">
-                    <span class="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></span>
-                    Yeni Nesil Web Ajansı
-                </span>
-            </div>
-            
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
-                Dijital Dünyada <br />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500" id="typewriter"></span><span class="cursor">&nbsp;</span>
-            </h1>
-            
-            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-                Markanızı geleceğe taşıyan, hızlı, güvenli ve modern web siteleri tasarlıyoruz. Fikirlerinizi koda döküyoruz.
-            </p>
-            
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#iletisim" class="bg-white text-black hover:bg-gray-200 px-8 py-4 rounded-full font-bold text-lg transition flex items-center justify-center gap-2">
-                    Hemen Teklif Al <i class="fa-solid fa-arrow-right"></i>
-                </a>
-                <a href="#hizmetler" class="border border-gray-600 hover:border-gray-400 text-white px-8 py-4 rounded-full font-bold text-lg transition flex items-center justify-center">
-                    Neler Yapıyoruz?
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="hizmetler" class="py-20 bg-gray-900/50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-5xl font-bold">Neden <span class="text-blue-500">viraWeb?</span></h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-blue-500 transition group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500 text-2xl mb-6 group-hover:scale-110 transition">
-                        <i class="fa-solid fa-bolt"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Işık Hızında Siteler</h3>
-                    <p class="text-gray-400">Optimize edilmiş kod yapısıyla saniyeler içinde açılan siteler geliştiriyoruz. Müşteri kaybetmeyin.</p>
-                </div>
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-purple-500 transition group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-500 text-2xl mb-6 group-hover:scale-110 transition">
-                        <i class="fa-solid fa-mobile-screen"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Mobil Uyumlu Tasarım</h3>
-                    <p class="text-gray-400">Kullanıcıların %70'inden fazlası mobil kullanıyor. Sitelerimiz tüm cihazlarda kusursuz görünür.</p>
-                </div>
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-green-500 transition group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-14 h-14 bg-green-500/10 rounded-xl flex items-center justify-center text-green-500 text-2xl mb-6 group-hover:scale-110 transition">
-                        <i class="fa-solid fa-magnifying-glass-chart"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">SEO Dostu Altyapı</h3>
-                    <p class="text-gray-400">Google'da üst sıralara çıkmanız için gerekli tüm arama motoru optimizasyonlarını en baştan yapıyoruz.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="teknolojiler" class="py-16 border-y border-gray-800 overflow-hidden relative">
-        <div class="text-center mb-10" data-aos="fade-in">
-            <p class="text-gray-400 font-medium uppercase tracking-widest">Kullandığımız Teknolojiler</p>
-        </div>
-        <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0b0f19] to-transparent z-10"></div>
-        <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0b0f19] to-transparent z-10"></div>
-        
-        <div class="marquee-wrapper">
-            <div class="marquee-content gap-16 items-center px-8 text-5xl text-gray-500">
-                <i class="fa-brands fa-html5 hover:text-orange-500 transition cursor-pointer"></i>
-                <i class="fa-brands fa-css3-alt hover:text-blue-500 transition cursor-pointer"></i>
-                <i class="fa-brands fa-js hover:text-yellow-400 transition cursor-pointer"></i>
-                <i class="fa-brands fa-react hover:text-cyan-400 transition cursor-pointer"></i>
-                <i class="fa-brands fa-node hover:text-green-500 transition cursor-pointer"></i>
-                <i class="fa-brands fa-php hover:text-indigo-400 transition cursor-pointer"></i>
-                <i class="fa-brands fa-wordpress hover:text-blue-400 transition cursor-pointer"></i>
-                <i class="fa-brands fa-figma hover:text-pink-400 transition cursor-pointer"></i>
-                <i class="fa-brands fa-bootstrap hover:text-purple-500 transition cursor-pointer"></i>
-                <i class="fa-brands fa-html5 hover:text-orange-500 transition cursor-pointer"></i>
-                <i class="fa-brands fa-css3-alt hover:text-blue-500 transition cursor-pointer"></i>
-                <i class="fa-brands fa-js hover:text-yellow-400 transition cursor-pointer"></i>
-                <i class="fa-brands fa-react hover:text-cyan-400 transition cursor-pointer"></i>
-                <i class="fa-brands fa-node hover:text-green-500 transition cursor-pointer"></i>
-                <i class="fa-brands fa-php hover:text-indigo-400 transition cursor-pointer"></i>
-                <i class="fa-brands fa-wordpress hover:text-blue-400 transition cursor-pointer"></i>
-                <i class="fa-brands fa-figma hover:text-pink-400 transition cursor-pointer"></i>
-                <i class="fa-brands fa-bootstrap hover:text-purple-500 transition cursor-pointer"></i>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 bg-[#0b0f19] overflow-hidden relative">
-        <div class="max-w-7xl mx-auto px-4 mb-16 text-center" data-aos="fade-up">
-            <h2 class="text-3xl md:text-5xl font-bold">Müşterilerimiz Ne Diyor?</h2>
-            <p class="text-gray-400 mt-4">Bizimle çalışan harika insanların düşünceleri.</p>
-        </div>
-
-        <div class="marquee-wrapper">
-            <div class="marquee-content gap-6 px-4" style="animation-duration: 30s;">
-                <div class="w-80 flex-shrink-0 bg-gray-800/80 p-6 rounded-2xl border border-gray-700">
-                    <div class="flex text-yellow-400 mb-3 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="text-gray-300 italic mb-4">"viraWeb ile çalışmak harikaydı. Tam istediğimiz tasarımı çok kısa sürede çıkardılar. Satışlarımız arttı!"</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center font-bold">A</div>
-                        <div><h4 class="font-bold">Ahmet Yılmaz</h4><span class="text-xs text-gray-500">E-ticaret Sahibi</span></div>
-                    </div>
-                </div>
-                <div class="w-80 flex-shrink-0 bg-gray-800/80 p-6 rounded-2xl border border-gray-700">
-                    <div class="flex text-yellow-400 mb-3 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="text-gray-300 italic mb-4">"Site o kadar hızlı oldu ki inanamadım. Müşteri destekleri efsane, her soruda yanımızdalardı."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center font-bold">M</div>
-                        <div><h4 class="font-bold">Merve Kaya</h4><span class="text-xs text-gray-500">Startup Kurucusu</span></div>
-                    </div>
-                </div>
-                <div class="w-80 flex-shrink-0 bg-gray-800/80 p-6 rounded-2xl border border-gray-700">
-                    <div class="flex text-yellow-400 mb-3 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="text-gray-300 italic mb-4">"Teknolojiyi çok iyi kullanıyorlar. Animasyonlar tam istediğim gibi akıcı ve havalı oldu. Teşekkürler!"</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center font-bold">C</div>
-                        <div><h4 class="font-bold">Caner Çelik</h4><span class="text-xs text-gray-500">Freelancer</span></div>
-                    </div>
-                </div>
-                <div class="w-80 flex-shrink-0 bg-gray-800/80 p-6 rounded-2xl border border-gray-700">
-                    <div class="flex text-yellow-400 mb-3 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="text-gray-300 italic mb-4">"Kurumsal kimliğimizi yansıtan mükemmel bir iş çıkardılar. Herkese tavsiye ediyorum."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center font-bold">S</div>
-                        <div><h4 class="font-bold">Selin Demir</h4><span class="text-xs text-gray-500">Ajans Yöneticisi</span></div>
-                    </div>
-                </div>
-                <div class="w-80 flex-shrink-0 bg-gray-800/80 p-6 rounded-2xl border border-gray-700">
-                    <div class="flex text-yellow-400 mb-3 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="text-gray-300 italic mb-4">"viraWeb ile çalışmak harikaydı. Tam istediğimiz tasarımı çok kısa sürede çıkardılar. Satışlarımız arttı!"</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center font-bold">A</div>
-                        <div><h4 class="font-bold">Ahmet Yılmaz</h4><span class="text-xs text-gray-500">E-ticaret Sahibi</span></div>
-                    </div>
-                </div>
-                <div class="w-80 flex-shrink-0 bg-gray-800/80 p-6 rounded-2xl border border-gray-700">
-                    <div class="flex text-yellow-400 mb-3 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="text-gray-300 italic mb-4">"Site o kadar hızlı oldu ki inanamadım. Müşteri destekleri efsane, her soruda yanımızdalardı."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center font-bold">M</div>
-                        <div><h4 class="font-bold">Merve Kaya</h4><span class="text-xs text-gray-500">Startup Kurucusu</span></div>
-                    </div>
-                </div>
-                <div class="w-80 flex-shrink-0 bg-gray-800/80 p-6 rounded-2xl border border-gray-700">
-                    <div class="flex text-yellow-400 mb-3 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="text-gray-300 italic mb-4">"Teknolojiyi çok iyi kullanıyorlar. Animasyonlar tam istediğim gibi akıcı ve havalı oldu. Teşekkürler!"</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center font-bold">C</div>
-                        <div><h4 class="font-bold">Caner Çelik</h4><span class="text-xs text-gray-500">Freelancer</span></div>
-                    </div>
-                </div>
-                <div class="w-80 flex-shrink-0 bg-gray-800/80 p-6 rounded-2xl border border-gray-700">
-                    <div class="flex text-yellow-400 mb-3 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="text-gray-300 italic mb-4">"Kurumsal kimliğimizi yansıtan mükemmel bir iş çıkardılar. Herkese tavsiye ediyorum."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center font-bold">S</div>
-                        <div><h4 class="font-bold">Selin Demir</h4><span class="text-xs text-gray-500">Ajans Yöneticisi</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="fiyatlar" class="py-24 bg-gray-900/50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-5xl font-bold">Sizin İçin Uygun Paketler</h2>
-                <p class="text-gray-400 mt-4">Her bütçeye ve ihtiyaca uygun, gizli maliyetsiz çözümler.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="bg-gray-800 rounded-3xl p-8 border border-gray-700 hover:border-gray-500 transition" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-2xl font-bold mb-2">Başlangıç</h3>
-                    <p class="text-gray-400 mb-6">Küçük işletmeler ve bireysel portföyler için.</p>
-                    <div class="text-4xl font-extrabold mb-6">₺4.999<span class="text-lg text-gray-500 font-normal">/tek sefer</span></div>
-                    <ul class="space-y-4 mb-8 text-gray-300">
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Özel Tasarım (Tek Sayfa)</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Mobil Uyumlu</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Temel SEO Altyapısı</li>
-                        <li><i class="fa-solid fa-xmark text-red-500 mr-2"></i> Yönetim Paneli</li>
-                    </ul>
-                    <a href="#iletisim" class="block w-full text-center py-3 rounded-xl bg-gray-700 hover:bg-gray-600 font-bold transition">Seç</a>
-                </div>
                 
-                <div class="bg-gradient-to-b from-blue-900 to-gray-900 rounded-3xl p-8 border border-blue-500 relative transform md:-translate-y-4 shadow-2xl shadow-blue-500/20" data-aos="fade-up" data-aos-delay="200">
-                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider">En Popüler</div>
-                    <h3 class="text-2xl font-bold mb-2">Kurumsal</h3>
-                    <p class="text-blue-200 mb-6">Markasını büyütmek isteyen orta ölçekli işletmeler.</p>
-                    <div class="text-4xl font-extrabold mb-6">₺12.999<span class="text-lg text-blue-300 font-normal">/tek sefer</span></div>
-                    <ul class="space-y-4 mb-8 text-gray-100">
-                        <li><i class="fa-solid fa-check text-green-400 mr-2"></i> Çok Sayfalı Web Sitesi</li>
-                        <li><i class="fa-solid fa-check text-green-400 mr-2"></i> Modern Animasyonlar</li>
-                        <li><i class="fa-solid fa-check text-green-400 mr-2"></i> İleri Düzey SEO</li>
-                        <li><i class="fa-solid fa-check text-green-400 mr-2"></i> Kolay Yönetim Paneli</li>
-                    </ul>
-                    <a href="#iletisim" class="block w-full text-center py-3 rounded-xl bg-blue-600 hover:bg-blue-500 font-bold transition">Seç</a>
-                </div>
-
-                <div class="bg-gray-800 rounded-3xl p-8 border border-gray-700 hover:border-gray-500 transition" data-aos="fade-up" data-aos-delay="300">
-                    <h3 class="text-2xl font-bold mb-2">E-Ticaret</h3>
-                    <p class="text-gray-400 mb-6">Online satışa başlamak isteyen girişimciler için.</p>
-                    <div class="text-4xl font-extrabold mb-6">₺24.999<span class="text-lg text-gray-500 font-normal">/tek sefer</span></div>
-                    <ul class="space-y-4 mb-8 text-gray-300">
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Sınırsız Ürün Ekleme</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Sanal POS Entegrasyonu</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Kargo Takip Modülü</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Gelişmiş Yönetim Paneli</li>
-                    </ul>
-                    <a href="#iletisim" class="block w-full text-center py-3 rounded-xl bg-gray-700 hover:bg-gray-600 font-bold transition">Seç</a>
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight flex flex-col items-center justify-center">
+                    <span>Dijital Dünyada</span>
+                    <span class="whitespace-nowrap mt-2">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500" id="typewriter"></span><span class="cursor">&nbsp;</span>
+                    </span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto px-4">
+                    Markanızı geleceğe taşıyan, hızlı, güvenli ve modern web siteleri tasarlıyoruz. Fikirlerinizi koda döküyoruz.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4 px-4">
+                    <a href="#iletisim" class="bg-white text-black hover:bg-gray-200 px-8 py-4 rounded-full font-bold text-lg transition flex items-center justify-center gap-2">
+                        Hemen Teklif Al <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#hizmetler" class="border border-gray-600 hover:border-gray-400 text-white px-8 py-4 rounded-full font-bold text-lg transition flex items-center justify-center">
+                        Neler Yapıyoruz?
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="iletisim" class="py-24 relative">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="bg-gray-800 rounded-3xl p-8 md:p-12 border border-gray-700 shadow-2xl relative overflow-hidden" data-aos="zoom-in">
-                <div class="absolute -right-20 -top-20 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl"></div>
-                
-                <h2 class="text-3xl md:text-4xl font-bold mb-2">Projeye Başlayalım!</h2>
-                <p class="text-gray-400 mb-8">Formu doldurun, size en kısa sürede dönüş yapalım.</p>
-                
-                <form class="space-y-6 relative z-10">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-400 mb-2">Adınız Soyadınız</label>
-                            <input type="text" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="Ahmet Yılmaz">
+        <section id="hizmetler" class="py-20 bg-gray-900/50">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-5xl font-bold">Neden <span class="text-blue-500">viraWeb?</span></h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-blue-500 transition group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500 text-2xl mb-6 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-bolt"></i>
                         </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-400 mb-2">E-Posta Adresiniz</label>
-                            <input type="email" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="ahmet@ornek.com">
+                        <h3 class="text-xl font-bold mb-3">Işık Hızında Siteler</h3>
+                        <p class="text-gray-400">Optimize edilmiş kod yapısıyla saniyeler içinde açılan siteler geliştiriyoruz. Müşteri kaybetmeyin.</p>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-purple-500 transition group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-500 text-2xl mb-6 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Mobil Uyumlu Tasarım</h3>
+                        <p class="text-gray-400">Kullanıcıların %70'inden fazlası mobil kullanıyor. Sitelerimiz tüm cihazlarda kusursuz görünür.</p>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-green-500 transition group" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-14 h-14 bg-green-500/10 rounded-xl flex items-center justify-center text-green-500 text-2xl mb-6 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-magnifying-glass-chart"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">SEO Dostu Altyapı</h3>
+                        <p class="text-gray-400">Google'da üst sıralara çıkmanız için gerekli tüm arama motoru optimizasyonlarını en baştan yapıyoruz.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="teknolojiler" class="py-16 border-y border-gray-800 overflow-hidden relative">
+            <div class="text-center mb-10" data-aos="fade-in">
+                <p class="text-gray-400 font-medium uppercase tracking-widest text-sm">Kullandığımız Teknolojiler</p>
+            </div>
+            <div class="absolute left-0 top-0 bottom-0 w-16 md:w-24 bg-gradient-to-r from-[#0b0f19] to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-16 md:w-24 bg-gradient-to-l from-[#0b0f19] to-transparent z-10 pointer-events-none"></div>
+            
+            <div class="marquee-wrapper">
+                <div class="marquee-content gap-10 md:gap-16 items-center px-4 md:px-8 text-4xl md:text-5xl text-gray-500">
+                    <i class="fa-brands fa-html5 hover:text-orange-500 transition cursor-pointer"></i>
+                    <i class="fa-brands fa-css3-alt hover:text-blue-500 transition cursor-pointer"></i>
+                    <i class="fa-brands fa-js hover:text-yellow-400 transition cursor-pointer"></i>
+                    <i class="fa-brands fa-react hover:text-cyan-400 transition cursor-pointer"></i>
+                    <i class="fa-brands fa-node hover:text-green-500 transition cursor-pointer"></i>
+                    <i class="fa-brands fa-php hover:text-indigo-400 transition cursor-pointer"></i>
+                    <i class="fa-brands fa-wordpress hover:text-blue-400 transition cursor-pointer"></i>
+                    <i class="fa-brands fa-figma hover:text-pink-400 transition cursor-pointer"></i>
+                    <i class="fa-brands fa-bootstrap hover:text-purple-500 transition cursor-pointer"></i>
+                    <i class="fa-brands fa-html5 hover:text-orange-500 transition cursor-pointer"></i>
+                    <i class="fa-brands fa-css3-alt hover:text-blue-500 transition cursor-pointer"></i>
+                    <i class="fa-brands fa-js hover:text-yellow-400 transition cursor-pointer"></i>
+                    <i class="fa-brands fa-react hover:text-cyan-400 transition cursor-pointer"></i>
+                    <i class="fa-brands fa-node hover:text-green-500 transition cursor-pointer"></i>
+                    <i class="fa-brands fa-php hover:text-indigo-400 transition cursor-pointer"></i>
+                    <i class="fa-brands fa-wordpress hover:text-blue-400 transition cursor-pointer"></i>
+                    <i class="fa-brands fa-figma hover:text-pink-400 transition cursor-pointer"></i>
+                    <i class="fa-brands fa-bootstrap hover:text-purple-500 transition cursor-pointer"></i>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-[#0b0f19] overflow-hidden relative">
+            <div class="max-w-7xl mx-auto px-4 mb-16 text-center" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold">Müşterilerimiz Ne Diyor?</h2>
+                <p class="text-gray-400 mt-4">Bizimle çalışan harika insanların düşünceleri.</p>
+            </div>
+
+            <div class="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#0b0f19] to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#0b0f19] to-transparent z-10 pointer-events-none"></div>
+
+            <div class="marquee-wrapper">
+                <div class="marquee-content gap-6 px-4" style="animation-duration: 35s;">
+                    <div class="w-[280px] md:w-80 flex-shrink-0 bg-gray-800/80 p-6 rounded-2xl border border-gray-700 whitespace-normal">
+                        <div class="flex text-yellow-400 mb-3 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-gray-300 italic mb-4">"viraWeb ile çalışmak harikaydı. Tam istediğimiz tasarımı çok kısa sürede çıkardılar. Satışlarımız arttı!"</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center font-bold">A</div>
+                            <div><h4 class="font-bold text-sm md:text-base">Ahmet Yılmaz</h4><span class="text-xs text-gray-500">E-ticaret Sahibi</span></div>
                         </div>
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-400 mb-2">İhtiyacınız Olan Hizmet</label>
-                        <select class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition appearance-none">
-                            <option>Kurumsal Web Sitesi</option>
-                            <option>E-Ticaret Sitesi</option>
-                            <option>Özel Yazılım Projesi</option>
-                            <option>Diğer</option>
-                        </select>
+                    <div class="w-[280px] md:w-80 flex-shrink-0 bg-gray-800/80 p-6 rounded-2xl border border-gray-700 whitespace-normal">
+                        <div class="flex text-yellow-400 mb-3 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-gray-300 italic mb-4">"Site o kadar hızlı oldu ki inanamadım. Müşteri destekleri efsane, her soruda yanımızdalardı."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center font-bold">M</div>
+                            <div><h4 class="font-bold text-sm md:text-base">Merve Kaya</h4><span class="text-xs text-gray-500">Startup Kurucusu</span></div>
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-400 mb-2">Mesajınız</label>
-                        <textarea rows="4" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="Projenizden biraz bahsedin..."></textarea>
+                    <div class="w-[280px] md:w-80 flex-shrink-0 bg-gray-800/80 p-6 rounded-2xl border border-gray-700 whitespace-normal">
+                        <div class="flex text-yellow-400 mb-3 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-gray-300 italic mb-4">"Teknolojiyi çok iyi kullanıyorlar. Animasyonlar tam istediğim gibi akıcı ve havalı oldu. Teşekkürler!"</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center font-bold">C</div>
+                            <div><h4 class="font-bold text-sm md:text-base">Caner Çelik</h4><span class="text-xs text-gray-500">Freelancer</span></div>
+                        </div>
                     </div>
-                    <button type="button" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-blue-500/25">
-                        Gönder gelsin!
-                    </button>
-                </form>
+                    <div class="w-[280px] md:w-80 flex-shrink-0 bg-gray-800/80 p-6 rounded-2xl border border-gray-700 whitespace-normal">
+                        <div class="flex text-yellow-400 mb-3 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-gray-300 italic mb-4">"Kurumsal kimliğimizi yansıtan mükemmel bir iş çıkardılar. Herkese tavsiye ediyorum."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center font-bold">S</div>
+                            <div><h4 class="font-bold text-sm md:text-base">Selin Demir</h4><span class="text-xs text-gray-500">Ajans Yöneticisi</span></div>
+                        </div>
+                    </div>
+                    <div class="w-[280px] md:w-80 flex-shrink-0 bg-gray-800/80 p-6 rounded-2xl border border-gray-700 whitespace-normal">
+                        <div class="flex text-yellow-400 mb-3 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-gray-300 italic mb-4">"viraWeb ile çalışmak harikaydı. Tam istediğimiz tasarımı çok kısa sürede çıkardılar. Satışlarımız arttı!"</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center font-bold">A</div>
+                            <div><h4 class="font-bold text-sm md:text-base">Ahmet Yılmaz</h4><span class="text-xs text-gray-500">E-ticaret Sahibi</span></div>
+                        </div>
+                    </div>
+                    <div class="w-[280px] md:w-80 flex-shrink-0 bg-gray-800/80 p-6 rounded-2xl border border-gray-700 whitespace-normal">
+                        <div class="flex text-yellow-400 mb-3 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-gray-300 italic mb-4">"Site o kadar hızlı oldu ki inanamadım. Müşteri destekleri efsane, her soruda yanımızdalardı."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center font-bold">M</div>
+                            <div><h4 class="font-bold text-sm md:text-base">Merve Kaya</h4><span class="text-xs text-gray-500">Startup Kurucusu</span></div>
+                        </div>
+                    </div>
+                    <div class="w-[280px] md:w-80 flex-shrink-0 bg-gray-800/80 p-6 rounded-2xl border border-gray-700 whitespace-normal">
+                        <div class="flex text-yellow-400 mb-3 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-gray-300 italic mb-4">"Teknolojiyi çok iyi kullanıyorlar. Animasyonlar tam istediğim gibi akıcı ve havalı oldu. Teşekkürler!"</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center font-bold">C</div>
+                            <div><h4 class="font-bold text-sm md:text-base">Caner Çelik</h4><span class="text-xs text-gray-500">Freelancer</span></div>
+                        </div>
+                    </div>
+                    <div class="w-[280px] md:w-80 flex-shrink-0 bg-gray-800/80 p-6 rounded-2xl border border-gray-700 whitespace-normal">
+                        <div class="flex text-yellow-400 mb-3 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-gray-300 italic mb-4">"Kurumsal kimliğimizi yansıtan mükemmel bir iş çıkardılar. Herkese tavsiye ediyorum."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center font-bold">S</div>
+                            <div><h4 class="font-bold text-sm md:text-base">Selin Demir</h4><span class="text-xs text-gray-500">Ajans Yöneticisi</span></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="bg-[#05080f] py-8 border-t border-gray-800 text-center">
-        <p class="text-gray-500 text-sm">© 2026 viraWeb. Tüm hakları saklıdır. Yüksek teknolojiyle kodlanmıştır. <i class="fa-solid fa-heart text-red-500"></i></p>
-    </footer>
+        <section id="fiyatlar" class="py-24 bg-gray-900/50">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-5xl font-bold">Sizin İçin Uygun Paketler</h2>
+                    <p class="text-gray-400 mt-4">Her bütçeye ve ihtiyaca uygun, gizli maliyetsiz çözümler.</p>
+                </div>
 
-    <a href="https://wa.me/905555555555" target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center text-3xl shadow-lg shadow-green-500/40 hover:scale-110 hover:bg-green-400 transition-all z-50 animate-bounce">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="bg-gray-800 rounded-3xl p-8 border border-gray-700 hover:border-gray-500 transition" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-2xl font-bold mb-2">Başlangıç</h3>
+                        <p class="text-gray-400 mb-6">Küçük işletmeler ve bireysel portföyler için.</p>
+                        <div class="text-4xl font-extrabold mb-6">₺3.500<span class="text-lg text-gray-500 font-normal">/tek sefer</span></div>
+                        <ul class="space-y-4 mb-8 text-gray-300">
+                            <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Özel Tasarım (Tek Sayfa)</li>
+                            <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Mobil Uyumlu</li>
+                            <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Temel SEO Altyapısı</li>
+                            <li><i class="fa-solid fa-xmark text-red-500 mr-2"></i> Yönetim Paneli</li>
+                        </ul>
+                        <a href="https://wa.me/905433037130?text=Merhaba%2C%20Ba%C5%9Flang%C4%B1%C3%A7%20paketini%20almak%20istiyorum." target="_blank" class="block w-full text-center py-3 rounded-xl bg-gray-700 hover:bg-gray-600 font-bold transition">Seç</a>
+                    </div>
+                    
+                    <div class="bg-gradient-to-b from-blue-900 to-gray-900 rounded-3xl p-8 border border-blue-500 relative transform md:-translate-y-4 shadow-2xl shadow-blue-500/20" data-aos="fade-up" data-aos-delay="200">
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider">En Popüler</div>
+                        <h3 class="text-2xl font-bold mb-2">Kurumsal</h3>
+                        <p class="text-blue-200 mb-6">Markasını büyütmek isteyen orta ölçekli işletmeler.</p>
+                        <div class="text-4xl font-extrabold mb-6">₺5.000<span class="text-lg text-blue-300 font-normal">/tek sefer</span></div>
+                        <ul class="space-y-4 mb-8 text-gray-100">
+                            <li><i class="fa-solid fa-check text-green-400 mr-2"></i> Çok Sayfalı Web Sitesi</li>
+                            <li><i class="fa-solid fa-check text-green-400 mr-2"></i> Modern Animasyonlar</li>
+                            <li><i class="fa-solid fa-check text-green-400 mr-2"></i> İleri Düzey SEO</li>
+                            <li><i class="fa-solid fa-check text-green-400 mr-2"></i> Kolay Yönetim Paneli</li>
+                        </ul>
+                        <a href="https://wa.me/905433037130?text=Merhaba%2C%20Kurumsal%20paketini%20almak%20istiyorum." target="_blank" class="block w-full text-center py-3 rounded-xl bg-blue-600 hover:bg-blue-500 font-bold transition">Seç</a>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-3xl p-8 border border-gray-700 hover:border-gray-500 transition" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="text-2xl font-bold mb-2">E-Ticaret</h3>
+                        <p class="text-gray-400 mb-6">Online satışa başlamak isteyen girişimciler için.</p>
+                        <div class="text-4xl font-extrabold mb-6">₺7.500<span class="text-lg text-gray-500 font-normal">/tek sefer</span></div>
+                        <ul class="space-y-4 mb-8 text-gray-300">
+                            <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Sınırsız Ürün Ekleme</li>
+                            <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Sanal POS Entegrasyonu</li>
+                            <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Kargo Takip Modülü</li>
+                            <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Gelişmiş Yönetim Paneli</li>
+                        </ul>
+                        <a href="https://wa.me/905433037130?text=Merhaba%2C%20E-Ticaret%20paketini%20almak%20istiyorum." target="_blank" class="block w-full text-center py-3 rounded-xl bg-gray-700 hover:bg-gray-600 font-bold transition">Seç</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="iletisim" class="py-24 relative">
+            <div class="max-w-4xl mx-auto px-4">
+                <div class="bg-gray-800 rounded-3xl p-8 md:p-12 border border-gray-700 shadow-2xl relative overflow-hidden" data-aos="zoom-in">
+                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl"></div>
+                    
+                    <h2 class="text-3xl md:text-4xl font-bold mb-2">Projeye Başlayalım!</h2>
+                    <p class="text-gray-400 mb-8">Formu doldurun, size en kısa sürede dönüş yapalım.</p>
+                    
+                    <form class="space-y-6 relative z-10">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2">Adınız Soyadınız</label>
+                                <input type="text" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="Ahmet Yılmaz">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2">E-Posta Adresiniz</label>
+                                <input type="email" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="ahmet@ornek.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">İhtiyacınız Olan Hizmet</label>
+                            <select class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition appearance-none">
+                                <option>Kurumsal Web Sitesi</option>
+                                <option>E-Ticaret Sitesi</option>
+                                <option>Özel Yazılım Projesi</option>
+                                <option>Diğer</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Mesajınız</label>
+                            <textarea rows="4" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="Projenizden biraz bahsedin..."></textarea>
+                        </div>
+                        <button type="button" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-blue-500/25">
+                            Gönder gelsin!
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-[#05080f] py-8 border-t border-gray-800 text-center">
+            <p class="text-gray-500 text-sm">© 2026 viraWeb. Tüm hakları saklıdır. Yüksek teknolojiyle kodlanmıştır. <i class="fa-solid fa-heart text-red-500"></i></p>
+        </footer>
+
+    </div> <a href="https://wa.me/905433037130?text=Merhaba%2C%20viraWeb%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center text-3xl shadow-lg shadow-green-500/40 hover:scale-110 hover:bg-green-400 transition-all z-50 animate-bounce">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Animasyonları Başlat
-        AOS.init({
-            once: true, // Animasyonlar sadece 1 kez çalışsın
-            offset: 100,
-        });
+        AOS.init({ once: true, offset: 100 });
 
-        // Daktilo Efekti (Typewriter JS)
         const textArray = ["Öne Çıkın.", "Fark Yaratın.", "İzinizi Bırakın."];
         const typingDelay = 100;
         const erasingDelay = 50;
-        const newTextDelay = 2000; // Sonraki kelimeye geçmeden bekleme süresi
+        const newTextDelay = 2000;
         let textArrayIndex = 0;
         let charIndex = 0;
 
